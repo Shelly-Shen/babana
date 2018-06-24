@@ -1,7 +1,8 @@
 # babana
 巴巴拿多人社交区包括多人博客，用户社交等功能（vue+vuex+vue.router+leancloud）
 
-   # install dependencies
+  
+    # install dependencies
     npm install
 
     # serve with hot reload at localhost:8080
