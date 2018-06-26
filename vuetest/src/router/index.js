@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import List from '@/page/List'
+import signUp from '@/page/signUp'
 Vue.use(Router)
 
 export default new Router({
@@ -15,6 +16,10 @@ export default new Router({
     	path:'/list',
     	name:'List',
     	component:List
+    },{
+    	path:'/signUp',
+    	name:'signUp',
+    	component:signUp
     }
   ]
 })
