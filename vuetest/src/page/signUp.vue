@@ -1,25 +1,26 @@
 <template>
 	<div class="container">
 		<h1>注册</h1>
-		<div class="from-panel">
-			<el-form label-position="top" ref="form" label-width="80px" :rules="rules" :model="user">
-				<el-form-item label="用户名" prop="name">
-					<el-input v-model="user.name"></el-input>
-				</el-form-item>
-				<el-form-item label="邮件" prop="email">
-					<el-input v-model="user.email"></el-input>
-				</el-form-item>
-				<el-form-item label="密码" prop="pwd">
-	         	 <el-input type="password" v-model="user.pwd"></el-input>
-		        </el-form-item>
-		        <el-form-item label="确认密码" prop="cpwd">
-		          <el-input type="password" v-model="user.cpwd"></el-input>
-		        </el-form-item>
-		        <div class="oprator">
-		        	<el-button class="submit" type="primary" @click="submitForm('form')">提交</el-button>
-		        </div>
-			</el-form>
-		</div>
+		 <div class="from-panel">
+      <el-form label-position="top" ref="form" label-width="80px" :rules="rules" :model="user">
+        <el-form-item label="用户名" prop="name">
+          <el-input v-model="user.name"></el-input>
+        </el-form-item>
+        <el-form-item label="邮件" prop="email">
+          <el-input v-model="user.email"></el-input>
+        </el-form-item>
+        <el-form-item label="密码" prop="pwd">
+          <el-input type="password" v-model="user.pwd"></el-input>
+        </el-form-item>
+        <el-form-item label="确认密码" prop="cpwd">
+          <el-input type="password" v-model="user.cpwd"></el-input>
+        </el-form-item>
+
+        <div class="oprator">
+          <el-button class="submit" type="primary" @click="submitForm('form')">提交</el-button>
+        </div>
+      </el-form>
+    </div>
 	</div>
 </template>
 
@@ -83,14 +84,14 @@
 						user.setPassword(this.user.pwd);
 						user.setEmail(this.user.email);
 					  user.signUp().then((loginUser)=> {
-					  	this.$store.commit('setUser',loginUser);
-					  	this.$router.go(-1)
+					  	this.$store.commit('setUser',loginUser); //保存到VueX中
+					  	this.$router.go(-1)//返回上一页
 					  	this.$message.success("注册成功")
 					  }).catch(error=>{
 					  console.error(error)
 					  this.$message.error(error.message)
 					  }).catch(error=>{
-					  console.log
+					  console.log('error')
 					  })
 					}else{
 						console.log('error sunmit!!');
@@ -106,10 +107,10 @@
 	.container{
 	padding:60px 10%;
 	background:#fafafa;
-	height:calc(100vh - 180px);
+	min-height:calc(100vh - 180px);
 	}
 	h1{
-	text-aglign:center;
+	text-align:center;
 	font-weight:100;
 	font-size:40px;
 	margin-bottom:35px;

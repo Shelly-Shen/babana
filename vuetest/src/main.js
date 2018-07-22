@@ -12,7 +12,6 @@ import api from'./api'
 Vue.config.productionTip = false
 localStorage.setItem('debug', 'leancloud*,LC*')
 
-
 /* eslint-disable no-new */
 Vue.mixin({
 	beforeCreate(){
@@ -21,6 +20,10 @@ Vue.mixin({
 		}
 	}
 })
+const user = api.SDK.User.current()
+if(user){
+  store.commit('setUser',user)
+}
 const options = {
   color: '#20a0ff',
   failedColor: '#874b4b',
